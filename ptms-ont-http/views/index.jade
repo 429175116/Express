@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  header(role='banner').navbar.navbar-static-top.bs-docs-nav
+    div.container
+      div.navbar-header
+        a(href='#').navbar-brand JZDC
+      nav(role='navigation').collapse.navbar-collapse.bs-navbar-collapse
+        ul.nav.navbar-nav
+          li
+            a(href='/api/v1') 公共接口
+  div#content.bs-docs-header
+    div.container
+      h2 极众BOB生产测试公共接口
+      p 主要提供Bosa信息接口、产品条码信息接口等服务。
+  div.container.bs-docs-container
+    div.page-header
+      h1 产测公共接口
+    each api, index in apis
+      div.panel.panel-default
+        div.panel-heading
+          h4 #{index+1}.#{api.name}
+        div.panel-body
+          ul.list-group
+            div
+              h5 URL:
+            li.list-group-item
+              a #{api.url}
+            div
+              h5 接口描述:
+            li.list-group-item #{api.desc}
+            div
+              h5 请求参数:
+            li.list-group-item #{api.params}
+            div
+              h5 返回值:
+            code #{api.result}
